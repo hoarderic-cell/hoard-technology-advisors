@@ -1,0 +1,145 @@
+:root {
+	--color-navy: #1b2a4a;
+	--color-navy-light: #2a3d66;
+	--color-burgundy: #8b3a3a;
+	--color-burgundy-dark: #6e2e2e;
+	--color-white: #ffffff;
+	--color-off-white: #f8f9fb;
+	--color-text: #2c3444;
+	--color-text-muted: #5c6478;
+	--color-border: #e2e6ed;
+
+	--font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+	--max-width: 72rem;
+	--header-height: 4.5rem;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	font-family: var(--font-sans);
+	font-size: 1.0625rem;
+	line-height: 1.65;
+	color: var(--color-text);
+	background: var(--color-white);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+a {
+	color: var(--color-burgundy);
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+a:hover {
+	color: var(--color-burgundy-dark);
+}
+
+h1,
+h2,
+h3,
+h4 {
+	margin: 0;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	color: var(--color-navy);
+}
+
+h1 {
+	font-size: clamp(2.25rem, 5vw, 3.25rem);
+	font-weight: 800;
+}
+
+h2 {
+	font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+}
+
+h3 {
+	font-size: 1.25rem;
+}
+
+p {
+	margin: 0;
+}
+
+.container {
+	width: min(100% - 2.5rem, var(--max-width));
+	margin-inline: auto;
+}
+
+.section {
+	padding-block: clamp(4rem, 8vw, 6rem);
+}
+
+.section--muted {
+	background: var(--color-off-white);
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.875rem 1.75rem;
+	font-family: var(--font-sans);
+	font-size: 0.9375rem;
+	font-weight: 600;
+	letter-spacing: 0.01em;
+	border: none;
+	border-radius: 2px;
+	cursor: pointer;
+	transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn--primary {
+	background: var(--color-burgundy);
+	color: var(--color-white);
+}
+
+.btn--primary:hover {
+	background: var(--color-burgundy-dark);
+	color: var(--color-white);
+}
+
+.btn--outline {
+	background: transparent;
+	color: var(--color-navy);
+	border: 1.5px solid var(--color-navy);
+}
+
+.btn--outline:hover {
+	background: var(--color-navy);
+	color: var(--color-white);
+}
+
+.accent-line {
+	width: 3rem;
+	height: 3px;
+	background: var(--color-burgundy);
+	margin-block: 1.25rem;
+}
+
+.section-label {
+	font-size: 0.8125rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--color-burgundy);
+}

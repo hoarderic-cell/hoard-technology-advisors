@@ -1,0 +1,109 @@
+---
+const navLinks = [
+	{ href: '#services', label: 'Services' },
+	{ href: '#approach', label: 'Approach' },
+	{ href: '#contact', label: 'Contact' },
+];
+---
+
+<header class="header">
+	<div class="container header__inner">
+		<a href="/" class="logo">
+			<span class="logo__mark">HTA</span>
+			<span class="logo__text">Hoard Technology Advisors</span>
+		</a>
+
+		<nav class="nav" aria-label="Main navigation">
+			<ul class="nav__list">
+				{
+					navLinks.map((link) => (
+						<li>
+							<a href={link.href}>{link.label}</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<style>
+	.header {
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		height: var(--header-height);
+		background: var(--color-navy);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.header__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 100%;
+	}
+
+	.logo {
+		display: flex;
+		align-items: center;
+		gap: 0.875rem;
+		color: var(--color-white);
+		text-decoration: none;
+	}
+
+	.logo:hover {
+		color: var(--color-white);
+		opacity: 0.92;
+	}
+
+	.logo__mark {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		font-size: 0.75rem;
+		font-weight: 800;
+		letter-spacing: 0.04em;
+		border: 1.5px solid var(--color-burgundy);
+		color: var(--color-white);
+	}
+
+	.logo__text {
+		font-size: 0.9375rem;
+		font-weight: 600;
+		letter-spacing: -0.01em;
+	}
+
+	.nav__list {
+		display: flex;
+		gap: 2rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.nav__list a {
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		color: rgba(255, 255, 255, 0.85);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.nav__list a:hover {
+		color: var(--color-white);
+	}
+
+	@media (max-width: 640px) {
+		.logo__text {
+			display: none;
+		}
+
+		.nav__list {
+			gap: 1.25rem;
+		}
+	}
+</style>

@@ -1,0 +1,87 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer" id="contact">
+	<div class="container footer__inner">
+		<div class="footer__brand">
+			<p class="footer__name">Hoard Technology Advisors</p>
+			<p class="footer__tagline">Strategic technology leadership for complex enterprises.</p>
+		</div>
+
+		<div class="footer__contact">
+			<p class="footer__label">Get in touch</p>
+			<a href="mailto:contact@hoardtechnology.com" class="footer__email">contact@hoardtechnology.com</a>
+		</div>
+	</div>
+
+	<div class="container footer__bottom">
+		<p>&copy; {year} Hoard Technology Advisors. All rights reserved.</p>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background: var(--color-navy);
+		color: rgba(255, 255, 255, 0.8);
+		padding-top: 3.5rem;
+	}
+
+	.footer__inner {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 2.5rem;
+		padding-bottom: 2.5rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.footer__name {
+		margin: 0 0 0.5rem;
+		font-size: 1.125rem;
+		font-weight: 700;
+		color: var(--color-white);
+	}
+
+	.footer__tagline {
+		margin: 0;
+		font-size: 0.9375rem;
+		max-width: 28rem;
+		line-height: 1.6;
+	}
+
+	.footer__label {
+		margin: 0 0 0.5rem;
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--color-burgundy);
+	}
+
+	.footer__email {
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-white);
+		text-decoration: none;
+	}
+
+	.footer__email:hover {
+		color: rgba(255, 255, 255, 0.85);
+	}
+
+	.footer__bottom {
+		padding-block: 1.5rem;
+	}
+
+	.footer__bottom p {
+		margin: 0;
+		font-size: 0.8125rem;
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+	@media (max-width: 640px) {
+		.footer__inner {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
