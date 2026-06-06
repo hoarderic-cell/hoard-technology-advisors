@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const linkedInUrl = 'https://www.linkedin.com/in/erichoard/';
+---
+
+<Layout
+	title="About Eric Hoard | Hoard Technology Advisors"
+	description="Eric Hoard founded Hoard Technology Advisors to help small and mid-sized organizations with technology strategy, vendor negotiations, and infrastructure decision-making."
+>
+	<section class="about-hero">
+		<div class="container">
+			<p class="section-label">About</p>
+			<h1>Eric Hoard</h1>
+			<div class="accent-line"></div>
+			<p class="about-hero__role">Founder, Hoard Technology Advisors LLC</p>
+		</div>
+	</section>
+
+	<article class="section about-content">
+		<div class="container about-content__inner">
+			<div class="prose">
+				<p>
+					I started my IT career as a Data Center Operator. Not because I had a plan, but because I
+					wanted to understand how things actually worked from the ground up. Thirteen years later,
+					having held nearly every role an infrastructure organization has to offer, I became the
+					person responsible for leading those teams.
+				</p>
+
+				<p>
+					That journey taught me something that took a while to name. The technology decisions that
+					matter most aren't really technical decisions. They're the ones where you're sitting across
+					from a Cisco or Broadcom rep who knows you need them more than they need you, trying to
+					protect your organization's budget and interests without the leverage that larger companies
+					take for granted. Most IT leaders in smaller organizations accept that situation as just
+					part of the job. I never stopped looking for a better way to handle it.
+				</p>
+
+				<p>
+					That conviction is what led me to found Hoard Technology Advisors LLC, where I focus on
+					technology strategy, vendor negotiations, and infrastructure decision-making for small and
+					mid-sized organizations that are tired of being outmaneuvered by enterprise vendors and
+					overwhelmed by advice built for companies ten times their size.
+				</p>
+
+				<p>
+					Today I serve as IT Infrastructure Manager at Farm Bureau Insurance of Michigan, leading
+					teams across Systems Engineering, Network Engineering, Database Administration, Unified
+					Communications, and M365.
+				</p>
+
+				<p>
+					If you work in technology leadership at a small or mid-sized organization, or you're
+					thinking seriously about what smart IT strategy looks like outside the enterprise world,
+					I'd genuinely enjoy connecting.
+				</p>
+			</div>
+
+			<aside class="about-sidebar">
+				<div class="about-card">
+					<p class="about-card__label">Connect</p>
+					<a href={linkedInUrl} class="about-card__link" target="_blank" rel="noopener noreferrer">
+						LinkedIn
+						<span class="about-card__arrow" aria-hidden="true">→</span>
+					</a>
+				</div>
+			</aside>
+		</div>
+	</article>
+</Layout>
+
+<style>
+	.about-hero {
+		padding-block: clamp(4rem, 10vw, 6rem);
+		background: var(--color-off-white);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.about-hero__role {
+		margin-top: 1rem;
+		font-size: 1.125rem;
+		font-weight: 500;
+		color: var(--color-text-muted);
+	}
+
+	.about-content__inner {
+		display: grid;
+		grid-template-columns: 1fr 16rem;
+		gap: clamp(2.5rem, 6vw, 5rem);
+		align-items: start;
+	}
+
+	.prose {
+		max-width: 40rem;
+	}
+
+	.prose p {
+		margin-bottom: 1.5rem;
+		font-size: 1.0625rem;
+		line-height: 1.75;
+		color: var(--color-text);
+	}
+
+	.prose p:last-child {
+		margin-bottom: 0;
+	}
+
+	.about-card {
+		padding: 1.75rem;
+		background: var(--color-off-white);
+		border: 1px solid var(--color-border);
+		border-top: 3px solid var(--color-burgundy);
+	}
+
+	.about-card__label {
+		margin: 0 0 0.75rem;
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--color-burgundy);
+	}
+
+	.about-card__link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-navy);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.about-card__link:hover {
+		color: var(--color-burgundy);
+	}
+
+	.about-card__arrow {
+		transition: transform 0.2s ease;
+	}
+
+	.about-card__link:hover .about-card__arrow {
+		transform: translateX(3px);
+	}
+
+	@media (max-width: 768px) {
+		.about-content__inner {
+			grid-template-columns: 1fr;
+		}
+
+		.about-sidebar {
+			order: -1;
+		}
+	}
+</style>
