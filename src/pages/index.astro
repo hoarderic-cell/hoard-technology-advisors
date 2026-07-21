@@ -1,44 +1,29 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const services = [
-	{
-		title: 'Technology Strategy',
-		description:
-			'Define roadmaps, set priorities, and align IT investments with business outcomes—without the overhead of advice built for companies ten times your size.',
-	},
-	{
-		title: 'Vendor Negotiations',
-		description:
-			'Level the playing field with enterprise vendors. Protect your budget and interests in conversations where the leverage typically isn\'t on your side.',
-	},
-	{
-		title: 'Infrastructure Decision-Making',
-		description:
-			'Navigate platform, architecture, and modernization choices with clarity. Guidance grounded in how infrastructure organizations actually operate.',
-	},
-	{
-		title: 'Advisory & Leadership Counsel',
-		description:
-			'Senior perspective for technology leaders facing decisions that aren\'t really technical decisions—vendor relationships, team structure, and high-stakes tradeoffs.',
-	},
-];
+const linkedInUrl = 'https://www.linkedin.com/in/erichoard/';
 
-const principles = [
+const highlights = [
 	{
-		title: 'Built for Your Scale',
+		title: 'Silicon Hoard',
 		description:
-			'Counsel designed for small and mid-sized organizations—not repurposed enterprise playbooks that assume resources you don\'t have.',
+			'My blog on technology leadership, vendor dynamics, and infrastructure decisions for organizations outside the enterprise world.',
+		href: '/blog',
+		label: 'Read the blog',
 	},
 	{
-		title: 'Vendor Advocacy',
+		title: 'Consulting',
 		description:
-			'The hardest technology decisions often happen across the table from a vendor who knows you need them more than they need you. We help you hold your ground.',
+			'Technology strategy, vendor negotiations, and infrastructure counsel for small and mid-sized organizations through Hoard Technology Advisors LLC.',
+		href: '/consulting',
+		label: 'View services',
 	},
 	{
-		title: 'Ground-Up Experience',
+		title: 'About',
 		description:
-			'Thirteen years from Data Center Operator to infrastructure leadership—across every role an organization like yours depends on.',
+			'Thirteen years from Data Center Operator to infrastructure leadership—and the story of how I got here.',
+		href: '/about',
+		label: 'My background',
 	},
 ];
 ---
@@ -46,33 +31,42 @@ const principles = [
 <Layout>
 	<section class="hero">
 		<div class="container hero__inner">
-			<p class="section-label">Senior Technology Consulting</p>
-			<h1>Strategic technology leadership for small and mid-sized organizations.</h1>
+			<p class="section-label">Eric Hoard</p>
+			<h1>Technology leadership, writing, and counsel.</h1>
 			<div class="accent-line"></div>
 			<p class="hero__lead">
-				Hoard Technology Advisors partners with technology leaders who are tired of being
-				outmaneuvered by enterprise vendors and overwhelmed by guidance built for a different
-				scale—with the rigor and directness your organization deserves.
+				I lead infrastructure teams by day and write about the decisions that matter by night.
+				Thirteen years from the data center floor to the leadership table taught me that the
+				hardest technology problems usually aren't technical at all.
+			</p>
+			<p class="hero__role">
+				IT Infrastructure Manager, Farm Bureau Insurance of Michigan
 			</p>
 			<div class="hero__actions">
-				<a href="#contact" class="btn btn--primary">Schedule a Consultation</a>
-				<a href="#services" class="btn btn--outline">Our Services</a>
+				<a href="/blog" class="btn btn--primary">Silicon Hoard</a>
+				<a href={linkedInUrl} class="btn btn--outline" target="_blank" rel="noopener noreferrer">
+					LinkedIn
+				</a>
 			</div>
 		</div>
 	</section>
 
-	<section class="section section--muted" id="services">
+	<section class="section section--muted">
 		<div class="container">
-			<p class="section-label">What We Do</p>
-			<h2>Focused expertise for technology leaders outside the enterprise world</h2>
+			<p class="section-label">Explore</p>
+			<h2>What you'll find here</h2>
 			<div class="accent-line"></div>
 
-			<div class="services-grid">
+			<div class="highlights-grid">
 				{
-					services.map((service) => (
-						<article class="service-card">
-							<h3>{service.title}</h3>
-							<p>{service.description}</p>
+					highlights.map((item) => (
+						<article class="highlight-card">
+							<h3>{item.title}</h3>
+							<p>{item.description}</p>
+							<a href={item.href} class="highlight-card__link">
+								{item.label}
+								<span aria-hidden="true">→</span>
+							</a>
 						</article>
 					))
 				}
@@ -80,44 +74,20 @@ const principles = [
 		</div>
 	</section>
 
-	<section class="section" id="approach">
-		<div class="container approach">
-			<div class="approach__content">
-				<p class="section-label">Our Approach</p>
-				<h2>Trusted counsel, not generic playbooks</h2>
+	<section class="section about-preview">
+		<div class="container about-preview__inner">
+			<div>
+				<p class="section-label">Background</p>
+				<h2>Built from the ground up</h2>
 				<div class="accent-line"></div>
-				<p class="approach__text">
-					The technology decisions that matter most often aren't technical at all. They're the ones
-					where you're protecting your organization's budget and interests without the leverage
-					larger companies take for granted. We bring clear, confidential counsel grounded in
-					real infrastructure leadership—not theory.
+				<p>
+					I started as a Data Center Operator because I wanted to understand how things actually
+					worked. Today I lead teams across Systems Engineering, Network Engineering, Database
+					Administration, Unified Communications, and M365—and I still believe the best technology
+					leaders understand the work at every level.
 				</p>
 			</div>
-
-			<ul class="principles-list">
-				{
-					principles.map((item) => (
-						<li class="principle">
-							<span class="principle__marker" aria-hidden="true"></span>
-							<div>
-								<h3>{item.title}</h3>
-								<p>{item.description}</p>
-							</div>
-						</li>
-					))
-				}
-			</ul>
-		</div>
-	</section>
-
-	<section class="cta">
-		<div class="container cta__inner">
-			<h2>Ready to move forward with confidence?</h2>
-			<p>
-				If you lead technology at a small or mid-sized organization, I'd genuinely enjoy
-				connecting.
-			</p>
-			<a href="#contact" class="btn btn--primary">Start a Conversation</a>
+			<a href="/about" class="btn btn--outline">Read my story</a>
 		</div>
 	</section>
 </Layout>
@@ -137,7 +107,13 @@ const principles = [
 		font-size: 1.1875rem;
 		line-height: 1.7;
 		color: var(--color-text-muted);
-		max-width: 36rem;
+	}
+
+	.hero__role {
+		margin-top: 1.25rem;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		color: var(--color-navy);
 	}
 
 	.hero__actions {
@@ -147,100 +123,67 @@ const principles = [
 		margin-top: 2.5rem;
 	}
 
-	.services-grid {
+	.highlights-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
 		gap: 1.5rem;
 		margin-top: 2.5rem;
 	}
 
-	.service-card {
+	.highlight-card {
 		padding: 2rem;
 		background: var(--color-white);
 		border: 1px solid var(--color-border);
 		border-top: 3px solid var(--color-burgundy);
 	}
 
-	.service-card h3 {
+	.highlight-card h3 {
 		margin-bottom: 0.75rem;
 	}
 
-	.service-card p {
+	.highlight-card p {
 		font-size: 0.9375rem;
 		color: var(--color-text-muted);
 		line-height: 1.65;
+		margin-bottom: 1.25rem;
 	}
 
-	.approach {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: clamp(2.5rem, 6vw, 5rem);
-		align-items: start;
+	.highlight-card__link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.375rem;
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--color-burgundy);
+		text-decoration: none;
 	}
 
-	.approach__text {
-		margin-top: 1.25rem;
-		font-size: 1.0625rem;
-		color: var(--color-text-muted);
-		line-height: 1.7;
+	.highlight-card__link:hover {
+		color: var(--color-burgundy-dark);
 	}
 
-	.principles-list {
-		margin: 0;
-		padding: 0;
-		list-style: none;
+	.about-preview__inner {
 		display: flex;
-		flex-direction: column;
+		align-items: flex-end;
+		justify-content: space-between;
 		gap: 2rem;
 	}
 
-	.principle {
-		display: flex;
-		gap: 1.25rem;
+	.about-preview__inner > div {
+		max-width: 40rem;
 	}
 
-	.principle__marker {
-		flex-shrink: 0;
-		width: 2px;
-		background: var(--color-burgundy);
-		align-self: stretch;
-	}
-
-	.principle h3 {
-		margin-bottom: 0.375rem;
+	.about-preview p {
+		margin-top: 1.25rem;
 		font-size: 1.0625rem;
-	}
-
-	.principle p {
-		font-size: 0.9375rem;
+		line-height: 1.7;
 		color: var(--color-text-muted);
-		line-height: 1.65;
-	}
-
-	.cta {
-		padding-block: clamp(4rem, 8vw, 5.5rem);
-		background: var(--color-navy);
-	}
-
-	.cta__inner {
-		text-align: center;
-		max-width: 32rem;
-	}
-
-	.cta h2 {
-		color: var(--color-white);
-		margin-bottom: 1rem;
-	}
-
-	.cta p {
-		color: rgba(255, 255, 255, 0.75);
-		margin-bottom: 2rem;
-		font-size: 1.0625rem;
 	}
 
 	@media (max-width: 768px) {
-		.approach {
-			grid-template-columns: 1fr;
+		.about-preview__inner {
+			flex-direction: column;
+			align-items: flex-start;
 		}
 	}
 </style>

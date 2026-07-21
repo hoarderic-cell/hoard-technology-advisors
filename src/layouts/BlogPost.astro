@@ -1,0 +1,163 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+import Layout from './Layout.astro';
+
+type Props = CollectionEntry<'blog'>['data'] & {
+	readTimeMinutes?: number;
+};
+
+const { title, description, pubDate, category, readTimeMinutes = 1 } = Astro.props;
+---
+
+<Layout title={`${title} | Silicon Hoard`} description={description}>
+	<article class="blog-post">
+		<header class="post-header">
+			<div class="container post-header__inner">
+				{category && <p class="post-category">{category}</p>}
+				<h1>{title}</h1>
+				<div class="post-meta">
+					<span>Eric Hoard</span>
+					<span aria-hidden="true">·</span>
+					<FormattedDate date={pubDate} />
+					<span aria-hidden="true">·</span>
+					<span>{readTimeMinutes} min read</span>
+				</div>
+			</div>
+		</header>
+
+		<div class="container post-body">
+			<slot />
+		</div>
+
+		<footer class="post-footer">
+			<div class="container post-footer__inner">
+				<p class="author-label">Written by Eric Hoard</p>
+				<p class="author-description">
+					IT Infrastructure Manager and founder of Hoard Technology Advisors LLC. Writing about
+					technology leadership for small and mid-sized organizations.
+				</p>
+				<a href="/blog" class="back-link">← Back to Silicon Hoard</a>
+			</div>
+		</footer>
+	</article>
+</Layout>
+
+<style>
+	.post-header {
+		padding-block: clamp(4rem, 10vw, 5rem);
+		background: var(--color-off-white);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.post-header__inner {
+		max-width: 40rem;
+	}
+
+	.post-category {
+		margin: 0 0 0.75rem;
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--color-burgundy);
+	}
+
+	.post-header h1 {
+		font-size: clamp(2rem, 4vw, 2.75rem);
+	}
+
+	.post-meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+		margin-top: 1.25rem;
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+	}
+
+	.post-body {
+		max-width: 40rem;
+		padding-block: clamp(3rem, 6vw, 4rem);
+		font-size: 1.0625rem;
+		line-height: 1.8;
+	}
+
+	.post-body :global(h2) {
+		margin: 2.5rem 0 1rem;
+		font-size: 1.5rem;
+	}
+
+	.post-body :global(h3) {
+		margin: 2rem 0 0.75rem;
+		font-size: 1.125rem;
+	}
+
+	.post-body :global(p) {
+		margin-bottom: 1.25rem;
+	}
+
+	.post-body :global(p:last-child) {
+		margin-bottom: 0;
+	}
+
+	.post-body :global(a) {
+		color: var(--color-burgundy);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.post-body :global(blockquote) {
+		margin: 1.5rem 0;
+		padding-left: 1.25rem;
+		border-left: 3px solid var(--color-burgundy);
+		color: var(--color-text-muted);
+		font-style: italic;
+	}
+
+	.post-body :global(ul),
+	.post-body :global(ol) {
+		margin: 0 0 1.25rem;
+		padding-left: 1.5rem;
+	}
+
+	.post-body :global(li) {
+		margin-bottom: 0.5rem;
+	}
+
+	.post-footer {
+		padding-block: 2.5rem 4rem;
+		background: var(--color-off-white);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.post-footer__inner {
+		max-width: 40rem;
+	}
+
+	.author-label {
+		margin: 0 0 0.5rem;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		color: var(--color-navy);
+	}
+
+	.author-description {
+		margin: 0 0 1.5rem;
+		font-size: 0.9375rem;
+		line-height: 1.65;
+		color: var(--color-text-muted);
+	}
+
+	.back-link {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--color-burgundy);
+		text-decoration: none;
+	}
+
+	.back-link:hover {
+		color: var(--color-burgundy-dark);
+	}
+</style>
